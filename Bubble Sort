@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+
+int main()
+{
+    int n = 10, tmp = 0;
+    std::vector<int>a(n);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> a[i];
+    }
+    bool alpha = false;
+    while(!alpha)
+    {
+        alpha = !alpha;
+       for (int i = 1; i < n; i++)
+       {
+           if (a[i - 1] > a[i]) 
+           {
+              tmp = a[i];
+              a[i] = a[i - 1];
+              a[i - 1] = tmp;
+              alpha = false;
+           }
+       }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << a[i] << std::ends;
+    }
+    return 0;
+}
